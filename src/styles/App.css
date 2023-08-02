@@ -1,0 +1,103 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 100vh;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(3em, 2vw, 4em);
+  margin: 0px;
+  cursor: alias;
+  padding-bottom: 75px;
+}
+
+.header-effect {
+  display: inline-block;
+  position: relative;
+}
+
+.header-effect-icon {
+  --size: clamp(20px, 1.5vw, 30px);
+
+  display: block;
+  height: var(--size);
+  left: var(--icon-left);
+  position: absolute;
+  top: var(--icon-top);
+  width: var(--size);
+  animation: scale 700ms ease forwards;
+}
+
+.header-effect-icon > svg {
+  display: block;
+  opacity: .7;
+  animation: rotate 1000ms linear infinite; 
+}
+
+.header-effect-icon > svg > path {
+  fill: var(--violet);
+}
+
+.header-effect-text {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgb(212,206,70),
+    rgb(74,186,145),
+    rgb(235,229,160),
+    rgb(212,206,70)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+
+
+.maze {
+  margin: 15px 0 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maze .cell {
+  float: left;
+  width: 10px;
+  height: 10px;
+}
+
+.maze .cell.closed {
+  background-color: rgb(29, 113, 14);
+}
+
+.maze .cell.open {
+  background-color: white;
+}
+
+.clear {
+  clear: both;
+}
+
+.pre {
+  display: block;
+  unicode-bidi: embed;
+  font-family: monospace;
+  white-space: pre;
+}
