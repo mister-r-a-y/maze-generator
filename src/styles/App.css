@@ -23,34 +23,13 @@ body {
   font-size: clamp(3em, 2vw, 4em);
   margin: 0px;
   cursor: alias;
+  padding-top: 200px;
   padding-bottom: 75px;
 }
 
 .header-effect {
   display: inline-block;
   position: relative;
-}
-
-.header-effect-icon {
-  --size: clamp(20px, 1.5vw, 30px);
-
-  display: block;
-  height: var(--size);
-  left: var(--icon-left);
-  position: absolute;
-  top: var(--icon-top);
-  width: var(--size);
-  animation: scale 700ms ease forwards;
-}
-
-.header-effect-icon > svg {
-  display: block;
-  opacity: .7;
-  animation: rotate 1000ms linear infinite; 
-}
-
-.header-effect-icon > svg > path {
-  fill: var(--violet);
 }
 
 .header-effect-text {

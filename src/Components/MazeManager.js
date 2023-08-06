@@ -11,7 +11,7 @@ export var MazeManager = {
     initialize: function(width, height) {
       MazeManager.grid = [];
       
-      // Initialize cells to 0.
+      // set cells to 0.
       for (var y=0; y<height; y++) {
         for (var x=0; x<width; x++) {
           MazeManager.grid[y] = MazeManager.grid[y] || [];
@@ -45,9 +45,9 @@ export var MazeManager = {
     },
     
     carve: function(x, y) {
-      // Carve a path from x,y to an adjacent cell.
+      // Carve a path from x,y to an adjacent cell
       
-      // First, try each direction (in random order).
+      // First, try each direction (in random order)
       var directions = [0, 1, 2, 3].sort(() => Math.random() * 2 - 1);
   
       directions.forEach(function(direction) {
@@ -69,30 +69,4 @@ export var MazeManager = {
         }
       });
     },
-  
-    toString: function() {
-      var result = '';
-  
-      // Top border.
-      for (var i=0; i<MazeManager.grid[0].length * 2; i++) {
-        result += '_';
-      }
-  
-      result += '\n';
-  
-      // Main content.
-      for (var y=0; y<MazeManager.grid.length; y++) {
-        result += '|';
-  
-        for (var x=0; x<MazeManager.grid[0].length; x++) {
-          // We only need to check south and east (because north and west have borders already included).
-          result += (MazeManager.grid[y][x] & MazeManager.DIRECTION.BOTTOM) === MazeManager.DIRECTION.BOTTOM ? ' ' : '_';
-          result += (MazeManager.grid[y][x] & MazeManager.DIRECTION.RIGHT) === MazeManager.DIRECTION.RIGHT ? ' ' : '|';
-        }
-  
-        result += '\n';
-      }
-  
-      return result;
-    }
   };

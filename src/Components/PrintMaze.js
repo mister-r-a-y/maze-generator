@@ -8,8 +8,8 @@ function PrintMaze() {
     document.body.innerHTML = originalContents;
 
   return (
-    <div>
-    </div>
+    <>
+    </>
   )
 }
 

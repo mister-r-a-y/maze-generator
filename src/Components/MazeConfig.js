@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MazeControl from './MazeControl'
 
-export default class mazeConfigControl extends Component {
+export default class mazeConfig extends Component {
   constructor(props) {
     super(props)
     

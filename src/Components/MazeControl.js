@@ -16,9 +16,6 @@ export default class mazeControl extends Component {
       this.redraw = this.redraw.bind(this);
     }
   
-    ascii() {
-      this.setState({ grid: MazeManager.toString() });
-    }
     
     grid() {
       this.setState({ grid: this.gridElements() });
@@ -72,26 +69,21 @@ export default class mazeControl extends Component {
         elements.push(<div className='clear'></div>);
         passageRow.push(<div className='clear'></div>);
         
-        // Append passages row to elements.
+        // Append passages row to elements
         elements.push.apply(elements, passageRow);
       }
       
       return elements;
     }
     
-    redraw(event) {
+    redraw() {
       MazeManager.initialize(this.state.width, this.state.height);
-  
-      if (this.props.type && this.props.type.toLowerCase() === 'ascii') {
-        this.ascii();
-      }
-      else {
         this.grid();
-      }
+
     }
     
     componentWillReceiveProps(nextProps) {
-      // Update maze when width or height property changes.
+      // Update maze when width or height property changes
       this.setState({ width: nextProps.width, height: nextProps.height }, function() {
         this.redraw();
       });
