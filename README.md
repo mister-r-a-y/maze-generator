@@ -1,1 +1,1 @@
-This is a React App that generates a randomized maze using a recursive backtracking algorithm.
+This is a React App that generates a random maze using a recursive backtracking algorithm.
